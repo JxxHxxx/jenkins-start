@@ -25,7 +25,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test'
-                sh './gradlew test'
+                sh 'chmod +x ./gradlew test'
             }
 
             post {
@@ -38,7 +38,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Build'
-                sh './gradlew build'
+                sh 'chmod +x ./gradlew build'
             }
 
             post {
