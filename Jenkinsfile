@@ -7,6 +7,10 @@ pipeline {
             API_SERVER_PEM_KEY = credentials('EC2-ACCESS')
         }
 
+    tools {
+        gradle '7.6.1'
+    }
+
     stages {
         stage('Checkout') {
             steps {
