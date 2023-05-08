@@ -25,6 +25,14 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
+tasks.named('compileJava') {
+    options.encoding = 'UTF-8'
+}
+
+tasks.named('bootJar') {
+    dependsOn(tasks.named('build'))
+}
+
 tasks.named('test') {
     useJUnitPlatform()
 }
