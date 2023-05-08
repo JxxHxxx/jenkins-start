@@ -26,8 +26,9 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test'
-                cd $WORK_DIRECTORY
-                sh 'chmod +x ./gradlew test'
+                dir(WORK_DIRECTORY) {
+                    sh 'chmod +x ./gradlew test'
+                }
             }
 
             post {
@@ -40,8 +41,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Build'
-                cd $WORK_DIRECTORY
-                sh 'chmod +x ./gradlew build'
+                dir(WORK_DIRECTORY) {
+                    sh 'chmod +x ./gradlew build'
+                }
             }
 
             post {
