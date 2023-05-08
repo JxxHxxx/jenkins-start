@@ -25,7 +25,7 @@
             stage('Build') {
                 steps {
                     echo 'Build'
-                    dir('/var/lib/jenkins/workspace/prac-3') {
+                    dir('/') {
                         sh 'chmod +x ./gradlew build'
                     }
                 }
