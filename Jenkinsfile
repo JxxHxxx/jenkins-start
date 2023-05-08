@@ -25,8 +25,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Build'
-                dir('/') {
-                    sh 'chmod +x ./gradlew build'
+                dir('/var/lib/jenkins/workspace/prac-3') {
+                    sh 'chmod +x /gradlew clean build'
                 }
             }
         }
@@ -47,7 +47,7 @@ pipeline {
 //         stage('Test') {
 //             steps {
 //                 echo 'Test'
-//                 dir('/') {
+//                 dir('/var/lib/jenkins/workspace/prac-3') {
 //                     sh 'chmod +x ./gradlew test'
 //                 }
 //             }
