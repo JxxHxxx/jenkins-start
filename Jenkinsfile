@@ -5,6 +5,7 @@ pipeline {
             AWS_ACCESS_KEY_ID = credentials('awsAccessKeyId')
             AWS_SECRET_ACCESS_KEY = credentials('awsSecretAccessKey')
             API_SERVER_PEM_KEY = credentials('EC2-ACCESS')
+            WORK_DIRECTORY = '/var/lib/jenkins/workspace/prac-3'
         }
 
     tools {
@@ -25,8 +26,8 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test'
-                sh 'chmod +x ./gradlew'
-                sh './gradlew test'
+                cd $WORK_DIRECTORY
+                sh 'chmod +x ./gradlew test'
             }
 
             post {
@@ -39,8 +40,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Build'
-                sh 'chmod +x ./gradlew'
-                sh './gradlew build'
+                cd $WORK_DIRECTORY
+                sh 'chmod +x ./gradlew build'
             }
 
             post {
