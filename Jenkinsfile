@@ -37,13 +37,13 @@
                 }
             }
 
-            stage('Deploy') {
-                steps {
-                    withCredentials([sshUserPrivateKey(credentialsId: 'EC2-ACCESS', keyFileVariable: 'PEM_KEY')]) {
-                        sh "ssh -o StrictHostKeyChecking=no -i $PEM_KEY ubuntu@43.201.76.198 java -jar jenkins-start-0.0.1-SNAPSHOT.jar"
-                    }
-                }
-            }
+//             stage('Deploy') {
+//                 steps {
+//                     withCredentials([sshUserPrivateKey(credentialsId: 'EC2-ACCESS', keyFileVariable: 'PEM_KEY')]) {
+//                         sh "ssh -o StrictHostKeyChecking=no -i $PEM_KEY ubuntu@43.201.76.198 java -jar jenkins-start-0.0.1-SNAPSHOT.jar"
+//                     }
+//                 }
+//             }
         }
     }
 
