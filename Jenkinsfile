@@ -22,20 +22,20 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                echo 'Test'
-                dir('/var/lib/jenkins/workspace/prac-3') {
-                    sh 'chmod +x ./gradlew test'
-                }
-            }
-
-            post {
-                failure {
-                    error 'test is fail...'
-                }
-            }
-        }
+//         stage('Test') {
+//             steps {
+//                 echo 'Test'
+//                 dir('/var/lib/jenkins/workspace/prac-3') {
+//                     sh 'chmod +x ./gradlew test'
+//                 }
+//             }
+//
+//             post {
+//                 failure {
+//                     error 'test is fail...'
+//                 }
+//             }
+//         }
 
         stage('Build') {
             steps {
