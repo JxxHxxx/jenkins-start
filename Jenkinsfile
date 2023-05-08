@@ -47,9 +47,9 @@ pipeline {
         stage('Deploy') {
             steps {
                     sh "ssh -i $API_SERVER_PEM_KEY ubuntu@43.201.76.198 java -jar your-application.jar"
-                }
             }
         }
     }
 }
+
 
