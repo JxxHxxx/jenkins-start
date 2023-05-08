@@ -29,12 +29,6 @@ pipeline {
                     sh 'chmod +x ./gradlew build'
                 }
             }
-
-            post {
-                failure {
-                    error 'build is fail...'
-                }
-            }
         }
     }
 }
