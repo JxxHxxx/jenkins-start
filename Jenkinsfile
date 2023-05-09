@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo 'Clonning Repository'
+                echo 'Cloning Repository'
 
                 git url: 'https://github.com/JxxHxxx/jenkins-start.git',
                     branch: 'master',
@@ -25,7 +25,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Build'
-                dir('./var/lib/jenkins/workspace/prac-3') {
+                dir('/var/lib/jenkins/workspace/practice') {
                     sh 'chmod +x ./gradlew build'
                 }
             }
@@ -47,7 +47,7 @@ pipeline {
 //         stage('Test') {
 //             steps {
 //                 echo 'Test'
-//                 dir('/var/lib/jenkins/workspace/prac-3') {
+//                 dir('/var/lib/jenkins/workspace/practice') {
 //                     sh 'chmod +x ./gradlew test'
 //                 }
 //             }
