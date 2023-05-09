@@ -11,4 +11,9 @@ public class HelloService {
         String prefix = UUID.randomUUID().toString();
         return "hello your ID : " + prefix;
     }
+
+    public String goodBye() {
+        String prefix = UUID.randomUUID().toString();
+        return "good bye";
+    }
 }

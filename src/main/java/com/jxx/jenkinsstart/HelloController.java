@@ -15,5 +15,11 @@ public class HelloController {
         String greetings = helloService.hello();
         return greetings;
     }
+
+    @GetMapping("/good-bye")
+    public String goodBye() {
+        String goodBye = helloService.goodBye();
+        return goodBye;
+    }
     
 }
