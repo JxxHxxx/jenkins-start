@@ -26,7 +26,8 @@ pipeline {
             steps {
                 echo 'Build'
                 dir('/var/lib/jenkins/workspace/practice') {
-                    sh 'gradle build'
+                    sh 'chmod +x ./gradlew build'
+//                     sh 'gradle build'
                 }
             }
         }
