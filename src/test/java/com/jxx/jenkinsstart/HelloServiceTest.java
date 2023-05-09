@@ -17,7 +17,7 @@ class HelloServiceTest {
 
     @DisplayName("Simple Test 2")
     @Test
-    void isTrue() {
+    void good_bye() {
         HelloService helloService = new HelloService();
         String goodBye = helloService.goodBye();
         Assertions.assertThat(goodBye).isEqualTo("good bye");

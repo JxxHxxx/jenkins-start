@@ -16,4 +16,8 @@ public class HelloService {
         String prefix = UUID.randomUUID().toString();
         return "good bye";
     }
+
+    public String getHost() {
+        return "jxx";
+    }
 }

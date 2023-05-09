@@ -21,5 +21,10 @@ public class HelloController {
         String goodBye = helloService.goodBye();
         return goodBye;
     }
+
+    @GetMapping("/hosts")
+    public String getHost() {
+        return helloService.getHost();
+    }
     
 }
