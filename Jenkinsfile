@@ -29,6 +29,7 @@ pipeline {
                     sh 'chmod +x ./gradlew test'
                 }
             }
+        }
 
         stage('Build') {
             steps {
@@ -53,11 +54,3 @@ pipeline {
 }
 
 
-
-//
-//             post {
-//                 failure {
-//                     error 'test is fail...'
-//                 }
-//             }
-//         }
