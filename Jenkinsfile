@@ -5,6 +5,7 @@ pipeline {
             AWS_ACCESS_KEY_ID = credentials('awsAccessKeyId')
             AWS_SECRET_ACCESS_KEY = credentials('awsSecretAccessKey')
             API_SERVER_PEM_KEY = credentials('EC2-ACCESS')
+            API_REMOTE_SERVER_IP = credentials('apiServerIP')
         }
 
     tools {
@@ -44,9 +45,9 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'EC2-ACCESS', keyFileVariable: 'PEM_KEY')]) {
                     dir('/var/lib/jenkins/workspace/practice/build/libs') {
-                        sh "scp -o StrictHostKeyChecking=no -i $PEM_KEY jenkins-start-0.0.1-SNAPSHOT.jar ubuntu@43.201.76.198:/home/ubuntu"
-                        sh "ssh -o StrictHostKeyChecking=no -i $PEM_KEY ubuntu@43.201.76.198 pkill -f jenkins-start-0.0.1-SNAPSHOT.jar > /dev/null 2>&1 &"
-                        sh "ssh -o StrictHostKeyChecking=no -i $PEM_KEY ubuntu@43.201.76.198 java -jar /home/ubuntu/jenkins-start-0.0.1-SNAPSHOT.jar > /dev/null 2>&1 &"
+                        sh "scp -o StrictHostKeyChecking=no -i $PEM_KEY jenkins-start-0.0.1-SNAPSHOT.jar ubuntu@$API_REMOTE_SERVER_IP:/home/ubuntu"
+                        sh "ssh -o StrictHostKeyChecking=no -i $PEM_KEY ubuntu@$API_REMOTE_SERVER_IP pkill -f jenkins-start-0.0.1-SNAPSHOT.jar > /dev/null 2>&1 &"
+                        sh "ssh -o StrictHostKeyChecking=no -i $PEM_KEY ubuntu@$API_REMOTE_SERVER_IP java -jar /home/ubuntu/jenkins-start-0.0.1-SNAPSHOT.jar > /dev/null 2>&1 &"
                     }
                 }
             }
