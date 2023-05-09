@@ -22,6 +22,14 @@ pipeline {
             }
         }
 
+        stage('Test') {
+            steps {
+                echo 'Test'
+                dir('/var/lib/jenkins/workspace/practice') {
+                    sh 'chmod +x ./gradlew test'
+                }
+            }
+
         stage('Build') {
             steps {
                 echo 'Build'
@@ -46,15 +54,6 @@ pipeline {
 
 
 
-
-
-//         stage('Test') {
-//             steps {
-//                 echo 'Test'
-//                 dir('/var/lib/jenkins/workspace/practice') {
-//                     sh 'chmod +x ./gradlew test'
-//                 }
-//             }
 //
 //             post {
 //                 failure {
