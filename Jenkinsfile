@@ -22,14 +22,14 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                echo 'Build'
-                dir('/var/lib/jenkins/workspace/practice') {
-                    sh 'gradle build'
-                }
-            }
-        }
+//         stage('Build') {
+//             steps {
+//                 echo 'Build'
+//                 dir('/var/lib/jenkins/workspace/practice') {
+//                     sh 'gradle build'
+//                 }
+//             }
+//         }
 
         stage('Deploy') {
             steps {
