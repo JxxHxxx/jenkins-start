@@ -22,21 +22,21 @@ pipeline {
             }
         }
 
-//         stage('Build') {
-//             steps {
-//                 echo 'Build'
-//                 dir('/var/lib/jenkins/workspace/practice') {
-//                     sh 'gradle build'
-//                 }
-//             }
-//         }
+        stage('Build') {
+            steps {
+                echo 'Build'
+                dir('/var/lib/jenkins/workspace/practice') {
+                    sh 'gradle build'
+                }
+            }
+        }
 
         stage('Deploy') {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'EC2-ACCESS', keyFileVariable: 'PEM_KEY')]) {
                     dir('/var/lib/jenkins/workspace/practice/build/libs') {
                         sh "scp -o StrictHostKeyChecking=no -i $PEM_KEY jenkins-start-0.0.1-SNAPSHOT.jar ubuntu@43.201.76.198:/home/ubuntu"
-                        sh "ssh -o StrictHostKeyChecking=no -i $PEM_KEY ubuntu@43.201.76.198 nohup java -jar jenkins-start-0.0.1-SNAPSHOT.jar /home/ubuntu"
+                        sh "ssh -o StrictHostKeyChecking=no -i $PEM_KEY ubuntu@43.201.76.198 nohup java -jar jenkins-start-0.0.1-SNAPSHOT.jar > /dev/null 2>&1 &"
                     }
                 }
             }
